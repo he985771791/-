@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.he</groupId>
+    <artifactId>parent0806</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>dao0806</artifactId>
+  <dependencies>
+  	<!-- 依赖的pojo包 -->
+  	<dependency>
+  		<groupId>com.he</groupId>
+	    <artifactId>pojo0806</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<!-- Mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	</dependency>
+	<!-- mysql驱动包jdbc -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	<!-- spring-context -->
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	</dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,23 @@
+package com.he.service.[objName];
+
+import java.util.List;
+import com.he.pojo.[ClassName];
+import com.he.pojo.[ClassName]Example;
+/**
+ * 
+ * @类名：[ClassName]ServiceI
+ * @描述：[note]Service层接口
+ * @日期：2018年8月18日 下午7:56:50
+ */
+public interface [ClassName]ServiceI {
+	//查询[note]操作，[objName]Example中包含sql语句的条件，[objName]中包含是否分页以及起始页与每页数据个数
+	public List<[ClassName]> get[ClassName]s([ClassName]Example [objName]Example , [ClassName] [objName]);
+	//通过id查询[note]
+	public [ClassName] get[ClassName]ById(int id);
+	//插入一条[note]记录
+	public int insert([ClassName] [objName]);
+	//更新一条[note]记录
+	public int update([ClassName] [objName]);
+	//删除一条[note]记录
+	public int delete(int id);
+}

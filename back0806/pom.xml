@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.he</groupId>
+    <artifactId>parent0806</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>back0806</artifactId>
+  <packaging>war</packaging>
+  <dependencies>
+  	<!-- service层依赖 -->
+  	<dependency>
+  		<groupId>com.he</groupId>
+	    <artifactId>service0806</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<!-- spring-context -->
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	</dependency>
+	<!-- spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	</dependency>
+	<!-- spring-orm -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	</dependency>
+	 <!--  spring测试包 -->
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <scope>test</scope>
+	</dependency>
+	<!-- mybatis-spring -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	</dependency>
+	<!-- 阿里开源连接池druid -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>druid</artifactId>
+	</dependency>
+	<!-- JSTL -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	</dependency>
+	<!-- json包，阿里fastjson -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	</dependency>
+	<!-- duracloud组件包包括log4j显示Mybatis的sql语句日志 ，base64加密-->
+	<dependency>
+	    <groupId>org.duracloud</groupId>
+	    <artifactId>common</artifactId>
+	</dependency>
+	<!-- aspect注释配置AOP -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	</dependency>
+	<!-- 文件上传 -->
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	</dependency>
+	<!-- pagehelper分页插件 -->
+	<dependency>
+	    <groupId>com.github.pagehelper</groupId>
+	    <artifactId>pagehelper</artifactId>
+	</dependency>
+	<!-- mybatis逆向工程 -->
+	<dependency>
+	    <groupId>org.mybatis.generator</groupId>
+	    <artifactId>mybatis-generator-core</artifactId>
+	</dependency>
+	<!-- redis -->
+	<dependency>
+	    <groupId>redis.clients</groupId>
+	    <artifactId>jedis</artifactId>
+	</dependency>
+	<!--   单元测试 -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

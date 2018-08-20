@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.he.dao.MailBoxMapper">
+  <resultMap id="BaseResultMap" type="com.he.pojo.MailBox">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="mail_id" jdbcType="INTEGER" property="mailId" />
+    <result column="drafts" jdbcType="TINYINT" property="drafts" />
+    <result column="sent_mail" jdbcType="TINYINT" property="sentMail" />
+    <result column="inbox" jdbcType="TINYINT" property="inbox" />
+    <result column="trash" jdbcType="TINYINT" property="trash" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, mail_id, drafts, sent_mail, inbox, trash
+  </sql>
+  <select id="selectByExample" parameterType="com.he.pojo.MailBoxExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mail_box
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mail_box
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mail_box
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.he.pojo.MailBoxExample">
+    delete from mail_box
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.he.pojo.MailBox">
+    insert into mail_box (id, user_id, mail_id, 
+      drafts, sent_mail, inbox, 
+      trash)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{mailId,jdbcType=INTEGER}, 
+      #{drafts,jdbcType=TINYINT}, #{sentMail,jdbcType=TINYINT}, #{inbox,jdbcType=TINYINT}, 
+      #{trash,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.he.pojo.MailBox">
+    insert into mail_box
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="mailId != null">
+        mail_id,
+      </if>
+      <if test="drafts != null">
+        drafts,
+      </if>
+      <if test="sentMail != null">
+        sent_mail,
+      </if>
+      <if test="inbox != null">
+        inbox,
+      </if>
+      <if test="trash != null">
+        trash,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="mailId != null">
+        #{mailId,jdbcType=INTEGER},
+      </if>
+      <if test="drafts != null">
+        #{drafts,jdbcType=TINYINT},
+      </if>
+      <if test="sentMail != null">
+        #{sentMail,jdbcType=TINYINT},
+      </if>
+      <if test="inbox != null">
+        #{inbox,jdbcType=TINYINT},
+      </if>
+      <if test="trash != null">
+        #{trash,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.he.pojo.MailBoxExample" resultType="java.lang.Long">
+    select count(*) from mail_box
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update mail_box
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.mailId != null">
+        mail_id = #{record.mailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.drafts != null">
+        drafts = #{record.drafts,jdbcType=TINYINT},
+      </if>
+      <if test="record.sentMail != null">
+        sent_mail = #{record.sentMail,jdbcType=TINYINT},
+      </if>
+      <if test="record.inbox != null">
+        inbox = #{record.inbox,jdbcType=TINYINT},
+      </if>
+      <if test="record.trash != null">
+        trash = #{record.trash,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update mail_box
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      mail_id = #{record.mailId,jdbcType=INTEGER},
+      drafts = #{record.drafts,jdbcType=TINYINT},
+      sent_mail = #{record.sentMail,jdbcType=TINYINT},
+      inbox = #{record.inbox,jdbcType=TINYINT},
+      trash = #{record.trash,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.he.pojo.MailBox">
+    update mail_box
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="mailId != null">
+        mail_id = #{mailId,jdbcType=INTEGER},
+      </if>
+      <if test="drafts != null">
+        drafts = #{drafts,jdbcType=TINYINT},
+      </if>
+      <if test="sentMail != null">
+        sent_mail = #{sentMail,jdbcType=TINYINT},
+      </if>
+      <if test="inbox != null">
+        inbox = #{inbox,jdbcType=TINYINT},
+      </if>
+      <if test="trash != null">
+        trash = #{trash,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.he.pojo.MailBox">
+    update mail_box
+    set user_id = #{userId,jdbcType=INTEGER},
+      mail_id = #{mailId,jdbcType=INTEGER},
+      drafts = #{drafts,jdbcType=TINYINT},
+      sent_mail = #{sentMail,jdbcType=TINYINT},
+      inbox = #{inbox,jdbcType=TINYINT},
+      trash = #{trash,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

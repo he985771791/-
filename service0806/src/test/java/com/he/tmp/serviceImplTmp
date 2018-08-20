@@ -1,0 +1,53 @@
+package com.he.service.[objName];
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.github.pagehelper.PageHelper;
+import com.he.dao.[ClassName]Mapper;
+import com.he.pojo.[ClassName];
+import com.he.pojo.[ClassName]Example;
+/**
+ * 
+ * @类名：[ClassName]ServiceImpl
+ * @描述：[note]Service实现类
+ * @日期：2018年8月18日 下午7:56:56
+ */
+@Service
+public class [ClassName]ServiceImpl implements [ClassName]ServiceI {
+	@Autowired
+	[ClassName]Mapper [objName]Mapper;
+	@Override
+	public List<[ClassName]> get[ClassName]s([ClassName]Example [objName]Example, [ClassName] [objName]) {
+		//如果withPage属性值为1代表要分页
+		if([objName].getWithPage()==1) {
+			PageHelper.startPage([objName].getPageNo(),[objName].getPageSize());
+		}
+		return [objName]Mapper.selectByExample([objName]Example);
+	}
+
+	@Override
+	public [ClassName] get[ClassName]ById(int id) {
+		//通过id查询[note]
+		return [objName]Mapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int insert([ClassName] [objName]) {
+		//仅插入不为空指针的[note]数据
+		return [objName]Mapper.insertSelective([objName]);
+	}
+
+	@Override
+	public int update([ClassName] [objName]) {
+		//仅更新不为空指针的[note]数据
+		return [objName]Mapper.updateByPrimaryKeySelective([objName]);
+	}
+
+	@Override
+	public int delete(int id) {
+		//删除一条[note]记录
+		return [objName]Mapper.deleteByPrimaryKey(id);
+	}
+
+}

@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.he</groupId>
+    <artifactId>parent0806</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>service0806</artifactId>
+  <dependencies>
+  	<!-- dao层依赖 -->
+  	<dependency>
+  		<groupId>com.he</groupId>
+	    <artifactId>dao0806</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<!-- pagehelper分页插件 -->
+	<dependency>
+	    <groupId>com.github.pagehelper</groupId>
+	    <artifactId>pagehelper</artifactId>
+	</dependency>
+	<!-- duracloud组件包包括log4j显示Mybatis的sql语句日志 ，base64加密-->
+	<dependency>
+	    <groupId>org.duracloud</groupId>
+	    <artifactId>common</artifactId>
+	</dependency>
+  </dependencies>
+</project>
